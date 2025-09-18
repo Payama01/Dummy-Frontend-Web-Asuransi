@@ -1,3 +1,15 @@
+#welcome-message {
+  position: absolute;
+  left: 40px;
+  top: 20px;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.2); /* Latar belakang sedikit transparan */
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
 body {
   font-family: Roboto, sans-serif;
   background-color: #f8f8f8;
@@ -35,6 +47,53 @@ header h1 {
   display: flex;
   gap: 16px;
   z-index: 2;
+}
+
+/* Terapkan gaya ini hanya jika lebar layar 768px atau lebih kecil */
+@media (max-width: 768px) {
+
+  /* 1. Mengecilkan judul utama */
+  header h1.judul-header {
+    font-size: 2.2em; /* Ukuran font judul dikurangi */
+  }
+  
+  /* 2. Mengecilkan subheader (nama dan NIM) */
+  header h5.subheader {
+    font-size: 0.8em;
+  }
+
+  /* 3. Mengecilkan gambar profil dan memindahkannya */
+  .pic-profile {
+    right: 10px; /* Jarak dari kanan dikurangi */
+  }
+
+  .pic-profile img {
+    width: 120px; /* Ukuran gambar dikecilkan */
+  }
+
+  /* 4. Mengatur ulang posisi pesan selamat datang dan navigasi */
+  #welcome-message {
+    left: 15px;
+    top: 15px;
+    font-size: 0.85em; /* Font pesan dikecilkan */
+    padding: 6px 10px;
+    max-width: 150px; /* Batasi lebar agar tidak terlalu panjang */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Tambahkan '...' jika email terlalu panjang */
+  }
+
+  .header-nav {
+    left: 15px;
+    top: 55px; /* Posisikan di bawah pesan selamat datang */
+    gap: 10px;
+  }
+  
+  .nav-link {
+    padding: 6px 14px;
+    font-size: 0.9em; /* Ukuran font link dikecilkan */
+  }
+
 }
 
 .nav-link {
@@ -122,21 +181,185 @@ header h1 {
   }
 }
 
+/* Mengatur kotak utama agar berada di tengah halaman */
 .kategori-box {
-  width: 350px;
-  padding: 5px 25px 20px 25px;
-  margin-top: 40px;
+  max-width: 700px; /* Lebar disamakan dengan subheader agar sejajar */
+  margin: 40px auto 40px auto; /* Menengahkan kotak secara horizontal */
+  padding: 1px 25px 20px 25px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
   background-color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
 }
 
+
+/* Mengatur judul "Pilihan Asuransi" dengan ikon */
 .kategori-title {
-  font-size: 1.2em;
+  font-size: 1.2em; /* Font diperbesar sedikit */
   font-weight: 500;
-  margin-bottom: 18px;
+  margin-bottom: 25px;
   text-align: left;
+  display: flex; /* Mengaktifkan flexbox untuk mensejajarkan ikon dan teks */
+  align-items: center;
+  gap: 10px; /* Jarak antara ikon dan teks */
+  color: #333;
+}
+
+/* Membuat layout grid untuk tiga tombol asuransi */
+.kategori-grid {
+  display: flex;
+  justify-content: space-around; /* Memberi jarak merata antar item */
+  align-items: flex-start;
+  text-align: center;
+}
+
+/* Menghilangkan gaya default tombol dan mengaturnya */
+.kategori-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* Ini adalah kunci: ikon di atas, teks di bawah */
+  align-items: center;
+  gap: 12px; /* Jarak antara ikon dan teks di dalam tombol */
+  color: #555;
+  width: 150px; /* Memberi lebar pada area tombol */
+  font-size: 1em;
+}
+
+/* Mengatur ikon di dalam tombol */
+.kategori-button i {
+  font-size: 2.8em; /* Ukuran ikon */
+  color: #256fd7; /* Warna ikon diubah menjadi biru */
+  transition: transform 0.2s ease-in-out; /* Animasi saat hover */
+}
+
+/* Mengatur teks di dalam tombol */
+.kategori-button span {
+  font-weight: 500;
+  transition: font-weight 0.2s ease-in-out; /* Animasi saat hover */
+}
+
+/* EFEK HOVER: Saat mouse diarahkan ke tombol */
+.kategori-button:hover i {
+  transform: scale(1.2); /* Memperbesar ikon */
+}
+
+.kategori-button:hover span {
+  font-weight: 700; /* Menebalkan teks (bold) */
+}
+
+.sejarah-box {
+  max-width: 1100px; /* Lebar disamakan dengan elemen lain agar sejajar */
+  margin: 40px auto; /* Memberi jarak atas/bawah dan menengahkan */
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  background-color: #fff;
+}
+
+.sejarah-title {
+  font-size: 1.5em;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #333;
+  border-bottom: 1px solid #e0e0e0; /* Garis bawah judul */
+  padding-bottom: 10px;
+}
+
+.sejarah-text {
+  font-size: 1em;
+  line-height: 1.7; /* Jarak antar baris agar mudah dibaca */
+  color: #555;
+  text-align: justify; /* Teks rata kiri-kanan */
+}
+
+
+footer {
+  background-color: #333a45; /* Warna latar belakang abu-abu gelap */
+  color: #d1d5db; /* Warna teks abu-abu terang */
+  padding-top: 40px; /* Jarak atas */
+  font-size: 0.95em;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Agar responsif di layar kecil */
+  max-width: 1100px; /* Lebar disamakan dengan konten lain */
+  margin: 0 auto;
+  padding: 0 25px;
+  gap: 20px; /* Jarak antar kolom */
+}
+
+.footer-column {
+  flex: 1; /* Membuat setiap kolom fleksibel */
+  min-width: 280px; /* Lebar minimum sebelum kolom turun baris */
+}
+
+.footer-column h4 {
+  color: #fff; /* Warna judul kolom lebih terang */
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #555; /* Garis bawah judul */
+  padding-bottom: 8px;
+}
+
+.footer-column p {
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+}
+
+/* Mengatur daftar link di kolom "Tentang Kami" */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff; /* Warna link saat di-hover */
+  text-decoration: underline;
+}
+
+/* Mengatur bagian referensi gambar */
+.footer-credits {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+  border-top: 1px solid #555; /* Garis pemisah */
+}
+
+.footer-credits a {
+  color: #a5c9ff;
+  text-decoration: none;
+}
+
+.footer-credits a:hover {
+  text-decoration: underline;
+}
+
+/* Mengatur baris hak cipta paling bawah */
+.footer-bar {
+  background-color: #212529; /* Warna lebih gelap untuk baris bawah */
+  color: #9ca3af;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.footer-bar p {
+  margin: 0;
+  font-size: 0.9em;
 }

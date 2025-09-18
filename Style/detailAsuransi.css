@@ -1,0 +1,217 @@
+#welcome-message {
+  position: absolute;
+  left: 40px;
+  top: 20px;
+  color: #fff;
+  font-size: 1em;
+  font-weight: 500;
+  background-color: rgba(0, 0, 0, 0.2); /* Latar belakang sedikit transparan */
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+}
+header {
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 40px;
+  position: relative;
+  color: #ffffff;
+  background-color: rgb(49, 143, 215);
+}
+
+header h1, header h5 {
+  margin: 0;
+}
+
+header h1 {
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.pic-profile {
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+  margin: 0;
+}
+
+.header-nav {
+  position: absolute;
+  left: 40px;
+  top: 60px;
+  display: flex;
+  gap: 16px;
+  z-index: 2;
+}
+
+.nav-link {
+  background: #fff;
+  color: #256fd7;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(49,143,215,0.08);
+}
+
+.nav-link:hover {
+  background: #256fd7;
+  color: #fff;
+}
+
+.subheader-box {
+  max-width: 1100px;
+  margin: 40px auto 40px auto;
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(24,91,183,0.08);
+  background: linear-gradient(90deg, #185bb7 60%, #256fd7 100%);
+  color: #fff;
+  overflow: hidden; /* Penting agar gambar mengikuti border-radius */
+  display: flex;
+  flex-direction: column; /* Mengubah tata letak menjadi vertikal (kolom) */
+}
+
+.pic-car {
+  width: 100%; /* Membuat kontainer gambar selebar penuh */
+  margin: 0;
+}
+
+.pic-car img {
+  width: 100%; /* Membuat gambar mengisi kontainernya */
+  height: auto;
+  display: block; /* Menghilangkan spasi ekstra di bawah gambar */
+}
+
+.subheader-content {
+  padding: 25px 30px; /* Memberi jarak di dalam area teks */
+}
+
+.subheader-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.subheader-content h5 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .subheader-box {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 10px;
+    gap: 20px;
+  }
+  .subheader-content h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .subheader-content h5 {
+    text-align: center;
+  }
+}
+
+
+
+
+
+footer {
+  background-color: #333a45; /* Warna latar belakang abu-abu gelap */
+  color: #d1d5db; /* Warna teks abu-abu terang */
+  padding-top: 40px; /* Jarak atas */
+  font-size: 0.95em;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Agar responsif di layar kecil */
+  max-width: 1100px; /* Lebar disamakan dengan konten lain */
+  margin: 0 auto;
+  padding: 0 25px;
+  gap: 20px; /* Jarak antar kolom */
+}
+
+.footer-column {
+  flex: 1; /* Membuat setiap kolom fleksibel */
+  min-width: 280px; /* Lebar minimum sebelum kolom turun baris */
+}
+
+.footer-column h4 {
+  color: #fff; /* Warna judul kolom lebih terang */
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #555; /* Garis bawah judul */
+  padding-bottom: 8px;
+}
+
+.footer-column p {
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+}
+
+/* Mengatur daftar link di kolom "Tentang Kami" */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff; /* Warna link saat di-hover */
+  text-decoration: underline;
+}
+
+/* Mengatur bagian referensi gambar */
+.footer-credits {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+  border-top: 1px solid #555; /* Garis pemisah */
+}
+
+.footer-credits a {
+  color: #a5c9ff;
+  text-decoration: none;
+}
+
+.footer-credits a:hover {
+  text-decoration: underline;
+}
+
+/* Mengatur baris hak cipta paling bawah */
+.footer-bar {
+  background-color: #212529; /* Warna lebih gelap untuk baris bawah */
+  color: #9ca3af;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.footer-bar p {
+  margin: 0;
+  font-size: 0.9em;
+}

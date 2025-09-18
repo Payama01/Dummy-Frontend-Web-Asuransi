@@ -4,14 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="/Static/Payama_Touhou.png" type="image/png">
     <link rel="stylesheet" href="/Style/landingpage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
     <title>Main Page</title>
 </head>
 <body>
     <header>
+    <div id="welcome-message"></div>
+
     <nav class="header-nav">
-            <a href="indexlogin.html" class="nav-link">Login</a>
-            <a href="indexsignup.html" class="nav-link">Sign Up</a>
+        <a href="indexlogin.html" class="nav-link" id="login-link">Login</a>
+        <a href="indexsignup.html" class="nav-link" id="signup-link">Sign Up</a>
+        <a href="#" class="nav-link" id="logout-link" style="display: none;">Logout</a>
     </nav>
     <figure class="pic-profile">
       <img src="/Static/Payama_Touhou.png" alt="touhou.png" width="200px">
@@ -31,19 +36,85 @@
         </div>
     </div>
 
-     <div class="kategori-box">
+    <div class="kategori-box">
         <div class="kategoti-content">
-            <p class="kategori-title">Pilihan Asuransi</p>
-            <button class="kategori-button">Asuransi Mobil</button>
-            <button class="kategori-button">Asuransi Kesehatan</button>
-            <button class="kategori-button">Asuransi Jiwa</button>
+            <p class="kategori-title"><i class="fa-solid fa-list-check"></i> Pilihan Asuransi</p>
+            
+            <div class="kategori-grid">
+                <button class="kategori-button">
+                    <i class="fa-solid fa-car"></i>
+                    <span>Asuransi Mobil</span>
+                </button>
+                <button class="kategori-button">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                    <span>Asuransi Kesehatan</span>
+                </button>
+                <button class="kategori-button">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <span>Asuransi Jiwa</span>
+                </button>
+            </div>
         </div>
     </div>
 
-    <p>Kalo sudah muncul berarti Login dan sign up sudah berhasil</p>
+    <div class="sejarah-box">
+        <div class="sejarah-content">
+            <h1 class="sejarah-title">Sejarah Asuransi Payama</h1>
+            <p class="sejarah-text">
+                Asuransi Payama didirikan pada tahun 1990 dengan visi untuk memberikan perlindungan terbaik bagi masyarakat Indonesia. Sejak awal, kami berkomitmen untuk menyediakan layanan asuransi yang inovatif dan terpercaya. Dengan pengalaman lebih dari tiga dekade, Asuransi Payama telah berkembang menjadi salah satu perusahaan asuransi terkemuka di Indonesia, melayani jutaan nasabah dengan berbagai produk asuransi yang sesuai dengan kebutuhan mereka. <br> <br>
+                Pada dekade pertama, perusahaan berfokus pada pembangunan fondasi yang kuat dengan meluncurkan produk asuransi jiwa dan kesehatan sebagai layanan utama. Menghadapi tantangan ekonomi dan persaingan yang ketat, Asuransi Payama berhasil bertahan dengan mengedepankan transparansi dan pelayanan nasabah yang prima. Kepercayaan publik yang meningkat mendorong kami untuk memperluas jangkauan layanan ke kota-kota besar di seluruh nusantara, memastikan akses perlindungan yang lebih mudah bagi lebih banyak keluarga Indonesia. <br> <br>
+                Memasuki era digital di awal tahun 2000-an, Asuransi Payama menjadi pelopor dalam inovasi teknologi di industri asuransi. Kami meluncurkan platform online pertama yang memungkinkan nasabah untuk membeli polis, mengajukan klaim, dan mengakses informasi secara digital. Langkah ini tidak hanya meningkatkan efisiensi operasional tetapi juga memberikan kemudahan yang belum pernah ada sebelumnya bagi para nasabah. Inovasi terus berlanjut dengan pengembangan aplikasi seluler dan penggunaan kecerdasan buatan untuk personalisasi produk. <br> <br>
+                Kini, Asuransi Payama berdiri sebagai simbol keamanan dan kepercayaan. Kami terus beradaptasi dengan perubahan zaman, mengembangkan produk-produk baru seperti asuransi mobil dan investasi untuk memenuhi kebutuhan gaya hidup modern. Dengan komitmen yang tak pernah goyah pada nilai-nilai inti kami—integritas, kepedulian, dan inovasi—kami siap melindungi masa depan nasabah kami untuk generasi-generasi yang akan datang, membuktikan bahwa perlindungan hari ini adalah jaminan untuk esok yang lebih cerah. <br> <br>
+            </p>
+        </div>
+    </div>
 
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Kontak Kami</h4>
+                <p>
+                    Jl. Tomang Raya No. 38, Jatipulo<br>
+                    Palmerah, Jakarta Barat 11430
+                </p>
+                <p>
+                    <strong>Telepon:</strong> (021) 40000 312<br>
+                    <strong>Jam Kerja:</strong> Senin - Jumat 09.00-17.00<br>
+                    <strong>Email:</strong> cs@payama.com
+                </p>
+            </div>
 
-    <p><a href='https://pngtree.com/freepng/family-photo-illustration_7101270.html'>png image from pngtree.com/</a></p>
+            <div class="footer-column">
+                <h4>Layanan Pengaduan Konsumen</h4>
+                <p>
+                    Direktorat Jenderal Perlindungan<br>
+                    Konsumen dan Tertib Niaga<br>
+                    Kementerian Perdagangan RI
+                </p>
+                <p>
+                    <strong>WhatsApp:</strong> 0853 1111 1010 (Chat Only)
+                </p>
+            </div>
+
+            <div class="footer-column">
+                <h4>Tentang Kami</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Tentang Kami</a></li>
+                    <li><a href="#">Kebijakan Privasi</a></li>
+                    <li><a href="#">Disclaimer</a></li>
+                    <li><a href="#">Ketentuan Layanan</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-credits">
+            <p>Referensi Gambar: <a href='https://pngtree.com/freepng/family-photo-illustration_7101270.html' target="_blank">pngtree.com</a></p>
+        </div>
+
+        <div class="footer-bar">
+            <p>© 2025 Asuransi Payama. All Rights Reserved.</p>
+        </div>
+    </footer>
     <script src="/Script/scriptLandingPage.js"></script>
 </body>
 </html>
