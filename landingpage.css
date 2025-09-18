@@ -1,0 +1,142 @@
+body {
+  font-family: Roboto, sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+}
+header {
+  text-align: center;
+  padding-bottom: 10px;
+  padding-top: 40px;
+  position: relative;
+  color: #ffffff;
+  background-color: rgb(49, 143, 215);
+}
+
+header h1, header h5 {
+  margin: 0;
+}
+
+header h1 {
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.pic-profile {
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+  margin: 0;
+}
+
+.header-nav {
+  position: absolute;
+  left: 40px;
+  top: 60px;
+  display: flex;
+  gap: 16px;
+  z-index: 2;
+}
+
+.nav-link {
+  background: #fff;
+  color: #256fd7;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(49,143,215,0.08);
+}
+
+.nav-link:hover {
+  background: #256fd7;
+  color: #fff;
+}
+
+.subheader-box {
+  background: linear-gradient(90deg, #185bb7 60%, #256fd7 100%);
+  border-radius: 20px;
+  margin: 40px auto 0 auto;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  max-width: 1100px;
+  min-height: 200px;
+  box-shadow: 0 4px 16px rgba(24,91,183,0.08);
+  color: #fff;
+  position: relative;
+  gap: 20px; /* jarak antara gambar dan teks */
+}
+
+.pic-family {
+  margin: 0;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.pic-family img {
+  width: 220px;
+  height: auto;
+  border-radius: 15px;
+  background: transparent;
+  display: block;
+}
+
+.subheader-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.subheader-content h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+  line-height: 1.2;
+  word-break: break-word;
+}
+
+.subheader-content h5 {
+  font-size: 1.2rem;
+  font-weight: 400;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .subheader-box {
+    flex-direction: column;
+    align-items: center;
+    padding: 30px 10px;
+    gap: 20px;
+  }
+  .subheader-content h1 {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+  .subheader-content h5 {
+    text-align: center;
+  }
+}
+
+.kategori-box {
+  width: 350px;
+  padding: 5px 25px 20px 25px;
+  margin-top: 40px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.kategori-title {
+  font-size: 1.2em;
+  font-weight: 500;
+  margin-bottom: 18px;
+  text-align: left;
+}
