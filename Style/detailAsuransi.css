@@ -66,6 +66,52 @@ header h1 {
   color: #fff;
 }
 
+@media (max-width: 860px) {
+
+  /* 1. Mengecilkan judul utama */
+  header h1.judul-header {
+    font-size: 2.2em; /* Ukuran font judul dikurangi */
+  }
+  
+  /* 2. Mengecilkan subheader (nama dan NIM) */
+  header h5.subheader {
+    font-size: 0.8em;
+  }
+
+  /* 3. Mengecilkan gambar profil dan memindahkannya */
+  .pic-profile {
+    right: 10px; /* Jarak dari kanan dikurangi */
+  }
+
+  .pic-profile img {
+    width: 120px; /* Ukuran gambar dikecilkan */
+  }
+
+  /* 4. Mengatur ulang posisi pesan selamat datang dan navigasi */
+  #welcome-message {
+    left: 15px;
+    top: 15px;
+    font-size: 0.85em; /* Font pesan dikecilkan */
+    padding: 6px 10px;
+    max-width: 150px; /* Batasi lebar agar tidak terlalu panjang */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Tambahkan '...' jika email terlalu panjang */
+  }
+
+  .header-nav {
+    left: 15px;
+    top: 55px; /* Posisikan di bawah pesan selamat datang */
+    gap: 10px;
+  }
+  
+  .nav-link {
+    padding: 6px 14px;
+    font-size: 0.9em; /* Ukuran font link dikecilkan */
+  }
+
+}
+
 .subheader-box {
   max-width: 1100px;
   margin: 40px auto 40px auto;
@@ -107,23 +153,107 @@ header h1 {
   margin: 0;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1200px) {
   .subheader-box {
+    max-width: 700px;
     flex-direction: column;
-    align-items: center;
-    padding: 30px 10px;
-    gap: 20px;
   }
   .subheader-content h1 {
     font-size: 1.5rem;
-    text-align: center;
-  }
-  .subheader-content h5 {
-    text-align: center;
   }
 }
 
+/* Mengatur box untuk Manfaat dan Cara Klaim agar seragam */
+.manfaat-box, .cara-box {
+  max-width: 1050px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background-color: #fff;
+}
 
+.manfaat-box h1, .cara-box h1 {
+  font-size: 1.6em;
+  font-weight: 600;
+  color: #333;
+  margin-top: 0;
+  margin-bottom: 25px;
+}
+
+/* Menghilangkan gaya default list dan mengatur padding */
+.manfaat-box ul, .cara-box ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+/* Mengatur setiap item list (li) */
+.manfaat-box li, .cara-box li {
+  font-size: 1.2em;
+  font-weight: 500;
+  color: #185bb7; /* Warna biru agar menonjol */
+  margin-bottom: 8px; /* Jarak bawah dari judul poin */
+  display: flex; /* Menggunakan flexbox untuk ikon dan teks */
+  align-items: center;
+}
+
+/* Mengatur ikon di dalam list */
+.manfaat-box li i, .cara-box li i {
+  margin-right: 15px; /* Jarak antara ikon dan teks */
+  width: 25px; /* Memberi lebar tetap pada ikon */
+  text-align: center;
+}
+
+/* Mengatur paragraf deskripsi di bawah setiap poin */
+.manfaat-box p, .cara-box p {
+  padding-left: 40px; /* Sejajarkan dengan teks di atasnya */
+  margin-top: 0;
+  margin-bottom: 25px; /* Jarak antar poin */
+  color: #555;
+  line-height: 1.6;
+}
+
+.daftar-button {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 30px;
+  text-align: center;
+  background-color: #eef5ff; /* Warna latar biru muda */
+  border-radius: 12px;
+  border: 1px dashed #a5c9ff; /* Garis putus-putus biru */
+}
+
+.daftar-button h2 {
+  margin: 0 0 15px 0;
+  font-size: 1.8em;
+  font-weight: 600;
+  color: #185bb7;
+}
+
+.daftar-button button {
+  background-color: #256fd7;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 15px 40px;
+  font-size: 1.2em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: 0 4px 12px rgba(37, 111, 215, 0.3);
+}
+
+.daftar-button button:hover {
+  background-color: #185bb7; /* Warna lebih gelap saat disentuh */
+  transform: translateY(-3px); /* Sedikit terangkat saat disentuh */
+}
+
+@media (max-width: 1200px) {
+  .manfaat-box, .cara-box {
+  max-width: 700px;
+
+}
+}
 
 
 
