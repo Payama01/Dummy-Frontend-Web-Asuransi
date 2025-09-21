@@ -1,4 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const activeUserEmail = localStorage.getItem('activeUser');
+    const welcomeMessage = document.getElementById('welcome-message');
+
+    if (activeUserEmail) {
+        // Jika ada pengguna yang login, tampilkan emailnya
+        welcomeMessage.textContent = ` ${activeUserEmail}`;
+        welcomeMessage.style.display = 'block';
+    } else {
+        // Jika tidak ada yang login, sembunyikan pesan selamat datang
+        welcomeMessage.style.display = 'none';
+        
+        alert("Anda harus login untuk melihat riwayat.");
+        window.location.href = 'indexlogin.html';
+    }
+    
     //Ambil data dari localStorage
     const storedData = localStorage.getItem('checkoutData');
     const detailContainer = document.getElementById('detail-checkout');

@@ -1,44 +1,69 @@
-// Menunggu hingga seluruh konten halaman dimuat sebelum menjalankan skrip
 document.addEventListener("DOMContentLoaded", function() {
-
-    // Cek apakah kita berada di halaman sign up dengan mencari tombol sign up
-    const signUpButton = document.querySelector(".btn");
-    if (document.body.contains(document.querySelector('input[placeholder="Konfirmasi Password"]'))) {
+    // Cek apakah berada di halaman sign up
+    if (document.querySelector('input[placeholder="Konfirmasi Password"]')) {
+        const signUpButton = document.querySelector(".btn");
         signUpButton.addEventListener("click", handleSignUp);
     }
 
-    // Cek apakah kita berada di halaman login dengan mencari tombol login
-    const loginButton = document.querySelector(".btn");
-    if (document.body.contains(document.querySelector('a[href="indexsignup.html"]'))) {
+    // Cek apakah berada di halaman login
+    if (document.querySelector('a[href="indexsignup.html"]')) {
+        const loginButton = document.querySelector(".btn");
         loginButton.addEventListener("click", handleLogin);
     }
-
 });
 
-/**
- * Fungsi untuk menangani proses sign up.
- */
 function handleSignUp() {
-    // Mengambil nilai dari setiap input field di halaman sign up
+    // Mengambil nilai dari setiap input field
     const email = document.querySelector('input[type="email"]').value;
     const password = document.querySelector('input[placeholder="Password"]').value;
     const confirmPassword = document.querySelector('input[placeholder="Konfirmasi Password"]').value;
     const fullName = document.querySelector('input[type="text"]').value;
     const phone = document.querySelector('input[type="tel"]').value;
 
-    // Validasi sederhana: memastikan semua field terisi
+    //Validasi semua field harus diisi
     if (!email || !password || !confirmPassword || !fullName || !phone) {
-        alert("Harap isi semua kolom yang tersedia.");
-        return; // Menghentikan eksekusi fungsi jika ada field yang kosong
+        alert("Kesalahan: Semua kolom wajib diisi.");
+        return;
     }
 
-    // Validasi: memastikan password dan konfirmasi password cocok
+    //Validasi format email menggunakan Regular Expression
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        alert("Kesalahan: Format email tidak valid.");
+        return;
+    }
+
+    //Validasi panjang kata sandi minimal 8 karakter
+    if (password.length < 8) {
+        alert("Kesalahan: Kata sandi minimal harus 8 karakter.");
+        return;
+    }
+
+    //Validasi kata sandi dan konfirmasi harus sesuai
     if (password !== confirmPassword) {
-        alert("Password dan Konfirmasi Password tidak cocok.");
-        return; // Menghentikan eksekusi jika tidak cocok
+        alert("Kesalahan: Kata sandi dan konfirmasi kata sandi tidak cocok.");
+        return;
     }
 
-    // Membuat objek untuk menyimpan data pengguna baru
+    //Validasi nama lengkap
+    const nameRegex = /^[a-zA-Z\s]+$/; // Hanya huruf dan spasi
+    if (fullName.length < 3 || fullName.length > 32) {
+        alert("Kesalahan: Nama lengkap harus antara 3 hingga 32 karakter.");
+        return;
+    }
+    if (!nameRegex.test(fullName)) {
+        alert("Kesalahan: Nama lengkap tidak boleh mengandung angka atau simbol.");
+        return;
+    }
+    
+    //Validasi nomor handphone
+    const phoneRegex = /^08[0-9]{8,14}$/; // Diawali 08, diikuti 8-14 digit angka
+    if (!phoneRegex.test(phone) || phone.length < 10 || phone.length > 16) {
+        alert("Kesalahan: Format nomor handphone tidak valid. (Contoh: 081234567890)");
+        return;
+    }
+
+    // Jika semua validasi berhasil, lanjutkan proses
     const newUser = {
         email: email,
         password: password,
@@ -46,19 +71,13 @@ function handleSignUp() {
         phone: phone
     };
 
-    // Menyimpan data pengguna ke localStorage.
-    // JSON.stringify mengubah objek JavaScript menjadi string agar bisa disimpan.
     localStorage.setItem(email, JSON.stringify(newUser));
 
-    // Memberi notifikasi bahwa pendaftaran berhasil
     alert("Sign up berhasil! Anda akan diarahkan ke halaman login.");
-
-    // Mengarahkan pengguna ke halaman login setelah berhasil mendaftar
     window.location.href = "indexlogin.html";
 }
 
 function handleLogin() {
-    // Mengambil nilai dari input email dan password di halaman login
     const email = document.querySelector('input[type="email"]').value;
     const password = document.querySelector('input[type="password"]').value;
 
@@ -73,22 +92,15 @@ function handleLogin() {
         const user = JSON.parse(userData);
         if (user.password === password) {
             alert("Login berhasil!");
-            
-            // Simpan informasi pengguna yang sedang login
             localStorage.setItem('activeUser', email);
-
-            // PERUBAHAN: Cek apakah ada URL redirect yang tersimpan
-            const redirectUrl = localStorage.getItem('redirectUrl');
             
+            const redirectUrl = localStorage.getItem('redirectUrl');
             if (redirectUrl) {
-                // Jika ada, arahkan ke sana dan hapus dari penyimpanan
                 localStorage.removeItem('redirectUrl');
                 window.location.href = redirectUrl;
             } else {
-                // Jika tidak, arahkan ke halaman utama seperti biasa
                 window.location.href = "/Index/indexHome.html";
             }
-            
         } else {
             alert("Password yang Anda masukkan salah.");
         }

@@ -13,6 +13,79 @@ header {
   background-color: rgb(49, 143, 215);
 }
 
+
+header h1, header h5 {
+  margin: 0;
+}
+
+header h1 {
+  font-size: 3em;
+  font-weight: 600;
+}
+
+.pic-profile {
+  position: absolute;
+  bottom: 0;
+  right: 40px;
+  margin: 0;
+}
+
+.header-nav {
+  position: absolute;
+  left: 40px;
+  top: 60px;
+  display: flex;
+  gap: 16px;
+  z-index: 2;
+}
+
+/* Terapkan gaya ini hanya jika lebar layar 768px atau lebih kecil */
+@media (max-width: 768px) {
+
+  /* 1. Mengecilkan judul utama */
+  header h1.judul-header {
+    font-size: 2.2em; /* Ukuran font judul dikurangi */
+  }
+  
+  /* 2. Mengecilkan subheader (nama dan NIM) */
+  header h5.subheader {
+    font-size: 0.8em;
+  }
+
+  /* 3. Mengecilkan gambar profil dan memindahkannya */
+  .pic-profile {
+    right: 10px; /* Jarak dari kanan dikurangi */
+  }
+
+  .pic-profile img {
+    width: 120px; /* Ukuran gambar dikecilkan */
+  }
+
+  /* 4. Mengatur ulang posisi pesan selamat datang dan navigasi */
+  #welcome-message {
+    left: 15px;
+    top: 15px;
+    font-size: 0.85em; /* Font pesan dikecilkan */
+    padding: 6px 10px;
+    max-width: 150px; /* Batasi lebar agar tidak terlalu panjang */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Tambahkan '...' jika email terlalu panjang */
+  }
+
+  .header-nav {
+    left: 15px;
+    top: 55px; /* Posisikan di bawah pesan selamat datang */
+    gap: 10px;
+  }
+  
+  .nav-link {
+    padding: 6px 14px;
+    font-size: 0.9em; /* Ukuran font link dikecilkan */
+  }
+
+}
+
 header h1, header h5 {
   margin: 0;
 }
@@ -89,4 +162,93 @@ header h1 {
   text-align: center;
   font-size: 0.95em;
   margin-top: 8px;
+}
+
+footer {
+  background-color: #333a45; /* Warna latar belakang abu-abu gelap */
+  color: #d1d5db; /* Warna teks abu-abu terang */
+  padding-top: 40px; /* Jarak atas */
+  font-size: 0.95em;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; /* Agar responsif di layar kecil */
+  max-width: 1100px; /* Lebar disamakan dengan konten lain */
+  margin: 0 auto;
+  padding: 0 25px;
+  gap: 20px; /* Jarak antar kolom */
+}
+
+.footer-column {
+  flex: 1; /* Membuat setiap kolom fleksibel */
+  min-width: 280px; /* Lebar minimum sebelum kolom turun baris */
+}
+
+.footer-column h4 {
+  color: #fff; /* Warna judul kolom lebih terang */
+  font-size: 1.2em;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #555; /* Garis bawah judul */
+  padding-bottom: 8px;
+}
+
+.footer-column p {
+  margin: 0 0 12px 0;
+  line-height: 1.6;
+}
+
+/* Mengatur daftar link di kolom "Tentang Kami" */
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 10px;
+}
+
+.footer-links a {
+  color: #d1d5db;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: #fff; /* Warna link saat di-hover */
+  text-decoration: underline;
+}
+
+/* Mengatur bagian referensi gambar */
+.footer-credits {
+  text-align: center;
+  padding: 20px 0;
+  margin-top: 20px;
+  border-top: 1px solid #555; /* Garis pemisah */
+}
+
+.footer-credits a {
+  color: #a5c9ff;
+  text-decoration: none;
+}
+
+.footer-credits a:hover {
+  text-decoration: underline;
+}
+
+/* Mengatur baris hak cipta paling bawah */
+.footer-bar {
+  background-color: #212529; /* Warna lebih gelap untuk baris bawah */
+  color: #9ca3af;
+  text-align: center;
+  padding: 15px 0;
+}
+
+.footer-bar p {
+  margin: 0;
+  font-size: 0.9em;
 }
