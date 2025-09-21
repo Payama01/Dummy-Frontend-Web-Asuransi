@@ -7,14 +7,14 @@
   <link rel="icon" href="/Static/Payama_Touhou.png" type="image/png">
   <link rel="stylesheet" href="/Style/beliAsuransi.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-  <title>Mobil</title>
+  <title>Document</title>
 </head>
 <body>
   <header>
       <div id="welcome-message"></div>
 
       <nav class="header-nav">
-          <a href="indexDetailMobil.html" class="nav-link">Back</a>
+          <a href="indexDetailJiwa.html" class="nav-link">Back</a>
       </nav>
       <figure class="pic-profile">
       <img src="/Static/Payama_Touhou.png" alt="touhou.png" width="200px">
@@ -24,71 +24,26 @@
       <h5 class="subheader">535240190</h5>
   </header>
 
-  <div class="subheader-box">
-      <figure class="pic-car">
-          <img src="/Static/mobil_keluarga.jpg" alt="familycarpic">
-      </figure>
-      <div class="subheader-content">
-          <h1>Wujudkan Berkendara Minim Resiko</h1>
-          <h5>Lindungi hari ini, aman untuk esok</h5>
-      </div>
-  </div>
-
   <div class="form-box">
-      <h1><i class="fa-solid fa-file-pen"></i> Isi form dan cek premi asuransimu:</h1>
+      <h1><i class="fa-solid fa-file-invoice-dollar"></i> Rincian Pembayaran</h1>
       
-      <div class="form-group">
-          <label><i class="fa-solid fa-car"></i> Merk mobil</label>
-          <input type="text" placeholder="Contoh: Toyota">
+      <div id="detail-checkout">
+          </div>
+
+      <hr> <div class="form-group">
+          <label for="payment-method"><i class="fa-solid fa-credit-card"></i> Pilih Metode Pembayaran</label>
+          <select id="payment-method" name="payment-method">
+              <option value="QRIS">QRIS</option>
+              <option value="Transfer Bank">Transfer Bank</option>
+          </select>
       </div>
 
-      <div class="form-group">
-          <label><i class="fa-solid fa-car-side"></i> Jenis mobil</label>
-          <input type="text" placeholder="Contoh: Avanza">
-      </div>
-
-      <div class="form-group">
-          <label><i class="fa-solid fa-calendar-days"></i> Tahun pembuatan</label>
-          <input type="text" placeholder="Contoh: 2023">
-      </div>
-
-      <div class="form-group">
-          <label><i class="fa-solid fa-dollar-sign"></i> Harga mobil</label>
-          <input type="text" placeholder="Contoh: 250000000">
-      </div>
-
-      <div class="form-group">
-          <label><i class="fa-solid fa-id-card"></i> Nomor plat mobil</label>
-          <input type="text" placeholder="Contoh: B 1234 ABC">
-      </div>
-
-      <div class="form-group">
-          <label><i class="fa-solid fa-cogs"></i> Nomor mesin</label>
-          <input type="text" placeholder="Sesuai STNK">
-      </div>
-
-      <div class="form-group">
-          <label><i class="fa-solid fa-barcode"></i> Nomor rangka</label>
-          <input type="text" placeholder="Sesuai STNK">
-      </div>
-
-      <div class="form-group">
-          <label><i class="fa-solid fa-user"></i> Nama pemilik</label>
-          <input type="text" placeholder="Sesuai KTP">
-      </div>
-
-      <div class="form-group">
-          <label><i class="fa-solid fa-camera"></i> Foto (STNK & Mobil)</label>
-          <input type="file" multiple="multiple" accept="image/png, image/jpeg, image/jpg">
-      </div>
       <div class="submit-button-container">
-        <button class="submit-button">Cek Premi Sekarang!</button>
-      </div>
+        <button class="submit-button" id="bayar-button">Bayar Sekarang</button>
+    </div>
   </div>
 
-  
-
-    <footer>
+  <footer>
         <div class="footer-container">
             <div class="footer-column">
                 <h4>Kontak Kami</h4>
@@ -134,6 +89,6 @@
             <p>© 2025 Asuransi Payama. All Rights Reserved.</p>
         </div>
     </footer>
-    <script src="/Script/scriptBeli.js"></script>
+    <script src="/Script/scriptCheckout.js"></script>
 </body>
 </html>

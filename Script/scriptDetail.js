@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
     
-    // --- BAGIAN 1: MENGATUR TAMPILAN BERDASARKAN STATUS LOGIN ---
     
     const activeUserEmail = localStorage.getItem('activeUser');
     const welcomeMessage = document.getElementById('welcome-message');
@@ -9,8 +8,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const logoutLink = document.getElementById('logout-link');
 
     if (activeUserEmail) {
-        // Jika ada pengguna yang login:
-        // 1. Tampilkan pesan selamat datang dengan email pengguna
         welcomeMessage.textContent = ` ${activeUserEmail}`;
         
         // 2. Sembunyikan tombol Login dan Sign Up
