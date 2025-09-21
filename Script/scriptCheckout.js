@@ -1,7 +1,5 @@
-// /Script/scriptCheckout.js
-
 document.addEventListener('DOMContentLoaded', function() {
-    // 1. Ambil data dari localStorage
+    //Ambil data dari localStorage
     const storedData = localStorage.getItem('checkoutData');
     const detailContainer = document.getElementById('detail-checkout');
     
@@ -12,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const checkoutData = JSON.parse(storedData);
 
-    // 2. Cek tipe asuransi dan panggil fungsi yang sesuai
+    //Cek tipe asuransi dan panggil fungsi yang sesuai
     if (checkoutData.type === 'Asuransi Mobil') {
         const premiTahunan = hitungPremiMobil(checkoutData.hargaMobil, checkoutData.tahunPembuatan);
         checkoutData.premiTahunan = premiTahunan;
@@ -34,12 +32,12 @@ document.addEventListener('DOMContentLoaded', function() {
         tampilkanDetailJiwa(checkoutData, detailContainer);
     }
 
-    // 3. Tambahkan fungsi pada tombol bayar
+    //Tambahkan fungsi pada tombol bayar
     const bayarButton = document.getElementById('bayar-button');
     bayarButton.addEventListener('click', function() {
         const metodePembayaran = document.getElementById('payment-method').value;
         
-        // --- AWAL MODIFIKASI PENTING ---
+
 
         // Ambil riwayat yang sudah ada, atau buat array baru jika belum ada
         const history = JSON.parse(localStorage.getItem('paymentHistory')) || [];
@@ -48,14 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
         const newTransaction = {
             ...checkoutData, // Salin semua data dari checkout
             paymentMethod: metodePembayaran,
-            transactionDate: new Date().toISOString() // Tambahkan tanggal transaksi
+            transactionDate: new Date().toISOString(),status: 'Lunas' 
+            
         };
         history.push(newTransaction);
 
         // Simpan kembali array riwayat yang sudah diperbarui ke localStorage
         localStorage.setItem('paymentHistory', JSON.stringify(history));
-        
-        // --- AKHIR MODIFIKASI PENTING ---
 
         alert(`Terima kasih! Pembayaran dengan metode ${metodePembayaran} akan segera diproses.`);
         
@@ -63,8 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
         window.location.href = 'indexHome.html';
     });
 });
-
-// --- (Sisa kode di bawah ini sama persis dengan file Anda, tidak ada perubahan) ---
 
 function hitungUmur(tanggalLahir) {
     if (!tanggalLahir) return 0;

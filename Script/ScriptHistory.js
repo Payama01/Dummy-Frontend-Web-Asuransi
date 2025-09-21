@@ -1,6 +1,19 @@
-// /Script/scriptHistory.js
-
 document.addEventListener('DOMContentLoaded', function() {
+    const activeUserEmail = localStorage.getItem('activeUser');
+    const welcomeMessage = document.getElementById('welcome-message');
+
+    if (activeUserEmail) {
+        // Jika ada pengguna yang login, tampilkan emailnya
+        welcomeMessage.textContent = ` ${activeUserEmail}`;
+        welcomeMessage.style.display = 'block';
+    } else {
+        // Jika tidak ada yang login, sembunyikan pesan selamat datang
+        welcomeMessage.style.display = 'none';
+        
+        alert("Anda harus login untuk melihat riwayat.");
+        window.location.href = 'indexlogin.html';
+    }
+
     const historyContainer = document.getElementById('history-list');
     // Ambil data riwayat dari localStorage, jika tidak ada, gunakan array kosong
     const history = JSON.parse(localStorage.getItem('paymentHistory')) || [];
@@ -24,8 +37,8 @@ document.addEventListener('DOMContentLoaded', function() {
             day: '2-digit', month: 'long', year: 'numeric', hour: '2-digit', minute: '2-digit'
         });
 
-        let detailsHTML = ''; // Untuk detail spesifik asuransi
-        let totalHTML = '';   // Untuk total premi
+        let detailsHTML = '';
+        let totalHTML = ''; 
 
         // Tentukan detail dan total berdasarkan tipe asuransi
         if (transaction.type === 'Asuransi Mobil') {
@@ -57,6 +70,8 @@ document.addEventListener('DOMContentLoaded', function() {
             <div class="history-item-body">
                 ${detailsHTML}
                 <p><strong>Metode Bayar:</strong> ${transaction.paymentMethod}</p>
+                
+                <p><strong>Status Pembayaran:</strong> <span class="status-lunas">${transaction.status || 'N/A'}</span></p>
                 ${totalHTML}
             </div>
         `;
